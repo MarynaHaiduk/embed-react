@@ -16,7 +16,8 @@
 </head>
 <body>
 
-<div id="root"></div>
+<div id="main"></div>
+<div id="dev-tools"></div>
 
 <script type="text/babel">
   
@@ -41,24 +42,42 @@
   
   function TasksList() {
       return(
-             <div>
-                 <h3>Project:</h3>
-                 <ol>
-                   {
-                     tasks.map(task => <li key={task.id}>{task.task}: {task.done}.</li>)
-                   }
-                 </ol>
-            </div>
+           <div>
+              <h3>Project:</h3>
+             <ol>
+               {
+                 tasks.map(task => <li key={task.id}>{task.task}: {task.done}.</li>)
+               }
+             </ol>
+          </div>
           );
   }
-  
 
+  function devTools(tools) {
+    return tools.software + ': ' + tools.version;
+  }
+
+  const tools = {
+    software: 'React.js',
+    version: '17.0.2'
+  };
+
+  const element = <p>{devTools(tools)}.</p>;
+  
+  
   // render with JSX
   ReactDOM.render(
     <App />,
-    document.getElementById('root')
+    document.getElementById('main')
   );
+
+  ReactDOM.render(
+    element,
+    document.getElementById('dev-tools')
+  );
+  
 </script>
+
 
 <!--
   Note: this page is a great way to try React but it's not suitable for production.
