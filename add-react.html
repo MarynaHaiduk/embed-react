@@ -11,30 +11,53 @@
   <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
   
   <!--  for production-->
-  <script crossorigin src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
-  <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
+  <!-- <script crossorigin src="https://unpkg.com/react@17/umd/react.production.min.js"></script>-->
+  <!-- <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>-->
 </head>
 <body>
 
 <div id="root"></div>
 
 <script type="text/babel">
- 
-  // create component
+  
   function App() {
+    const name = 'admin';
     return (
       <div>
-        <h3>Add React to a Website</h3>
+        <h1>Add React to a Website</h1>
+        <p style={{color: 'grey'}}><small>You are logged on as {name}.</small></p>
+        <TasksList/>
       </div>
     );
   }
+
+
+  const tasks = [
+    { id: 1, task: 'Create Design', done: 'done' },
+    { id: 2, task: 'Create DB', done: 'done' },
+    { id: 3, task: 'Create UI', done: 'done' }
+  ];
+
   
+  function TasksList() {
+      return(
+             <div>
+                 <h3>Project:</h3>
+                 <ol>
+                   {
+                     tasks.map(task => <li key={task.id}>{task.task}: {task.done}.</li>)
+                   }
+                 </ol>
+            </div>
+          );
+  }
+  
+
   // render with JSX
   ReactDOM.render(
     <App />,
     document.getElementById('root')
   );
-  
 </script>
 
 <!--
