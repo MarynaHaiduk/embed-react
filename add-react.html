@@ -26,42 +26,46 @@
     return (
       <div>
         <h1>Add React to a Website</h1>
-        <p style={{color: 'grey'}}><small>You are logged on as {name}.</small></p>
+        <p style={{color: '#585858'}}><small>You are logged on as {name}.</small></p>
+        <p>It is {new Date().toLocaleTimeString()}.</p>
         <TasksList/>
       </div>
     );
   }
-
-
+  
+  
   const tasks = [
     { id: 1, task: 'Create Design', done: 'done' },
     { id: 2, task: 'Create DB', done: 'done' },
     { id: 3, task: 'Create UI', done: 'done' }
   ];
-
+  
   
   function TasksList() {
-      return(
-           <div>
-              <h3>Project:</h3>
-             <ol>
-               {
-                 tasks.map(task => <li key={task.id}>{task.task}: {task.done}.</li>)
-               }
-             </ol>
-          </div>
-          );
+    return(
+      <div>
+        <h3>Project:</h3>
+        <ol>
+          {
+            tasks.map(task => <li key={task.id}>{task.task}: {task.done}.</li>)
+          }
+        </ol>
+      </div>
+    );
   }
-
+  
+  
   function devTools(tools) {
     return tools.software + ': ' + tools.version;
   }
-
+  
+  
   const tools = {
     software: 'React.js',
     version: '17.0.2'
   };
-
+  
+  
   const element = <p>{devTools(tools)}.</p>;
   
   
@@ -70,12 +74,12 @@
     <App />,
     document.getElementById('main')
   );
-
+  
   ReactDOM.render(
     element,
     document.getElementById('dev-tools')
   );
-  
+
 </script>
 
 
